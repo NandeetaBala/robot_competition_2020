@@ -3,7 +3,6 @@
 
 ZumoMotors motors;
 ZumoReflectanceSensorArray linesensors(QTR_NO_EMITTER_PIN);
-ZumoBuzzer buzzer;
 
 void setup() {
   int i;
@@ -25,27 +24,20 @@ unsigned int sensor_vals[6];
 int THRESHOLD = 600;
 int BASE_SPEED = 200;
 int line_position;
-char path[50];
-int turn_counter = 0;
 
 void loop() {
   line_position = linesensors.readLine(sensor_vals);
-  if(sensor_vals[0] > THRESHOLD && sensor_vals[5] > THRESHOLD){
-    solved(); 
-  }else if(sensor_vals[0] > THRESHOLD && sensor_vals[1] > THRESHOLD){
-    path[turn_counter] = 'L';
-    turn_counter++;
+  
+  if(sensor_vals[0] > THRESHOLD && sensor_vals[1] > THRESHOLD){
     turn_left();
   } else if(sensor_vals[4] > THRESHOLD && sensor_vals[5] > THRESHOLD){
-    path[turn_counter] = 'R';
-    turn_counter++;
     turn_right();
   } else {
     follow_line();
   }
 }
 
-void turn_left() {
+void turn_left() {//turning using the reactive approach, later can experiment with ways to speed up
   motors.setSpeeds(-BASE_SPEED, BASE_SPEED);
   linesensors.read(sensor_vals);
   while(sensor_vals[0] > THRESHOLD && sensor_vals[1] > THRESHOLD){
@@ -63,24 +55,14 @@ void turn_right() {
 
 void solved(){
   motors.setSpeeds(0,0);
-  for(int i=0; i<turn_counter+1; i++){
-    if(path[i] == 'L'){
-      buzzer.playNote(NOTE_G(5), 200, 15);
-      delay(400);
-    }
-    if(path[i] == 'R'){
-      buzzer.playNote(NOTE_G(6), 200, 15);
-      delay(400);
-    }
-  }
-  while(true){
-    // do nothing!
+  while(true){ 
+    // do nothing so that the main loop() doesn't restart.
   }
 }
 
 
 double PROPORTION_GAIN = 0.2;
-double DERIVATIVE_GAIN = 2;
+double DERIVATIVE_GAIN = 3;
 int last_error = 0;
 void follow_line(){
   // follow line
