@@ -1,4 +1,4 @@
-#include <Wire.h>//from milestone_code_2  tried 275 and used proportion gain of 0.13. did not work well. i think it is imp to keep proportion gain at 0.2. maybe can increase to 0.23 and then increase the speed to 380.
+#include <Wire.h>//from milestone_code_2  tried 275 and used proportion gain of 0.13. did not work well. i think it is imp to keep proportion gain at 0.2. maybe can increase to 0.23 and then increase the speed to 380. when just changed to 370 with 0.2 and it could not handle turn. try 370 with 2.2 still cant handle turn. other run was best
 #include <ZumoShield.h>
 
 ZumoMotors motors;
@@ -24,7 +24,7 @@ void setup() {
 
 unsigned int sensor_vals[6];
 int THRESHOLD = 400;
-int BASE_SPEED = 275;//changed from 200 to 350 that was too fast and it missed turns. so, now trying 275.
+int BASE_SPEED = 370;//changed from 200 to 350 that was too fast and it missed turns. so, now trying 275.
 int line_position;
 char path[50];
 int turn_counter = 0;
@@ -196,7 +196,7 @@ void solved(){
   runSolvedMaze();
 }
 
-double PROPORTION_GAIN = 0.13;//was set to 0.6 from 0.2, might be better to decrease this value, so i decreased to 0.1 from 0.2 and then the robot went in circles. so i changed  to 0.13 - that worked great and had an  initial run of 13s
+double PROPORTION_GAIN = 0.22;//was set to 0.6 from 0.2, might be better to decrease this value, so i decreased to 0.1 from 0.2 and then the robot went in circles. so i changed  to 0.13 - that worked great and had an  initial run of 13s
 double DERIVATIVE_GAIN = 3;//changed to 2 from 3, then the robot missed a lot of the turns and such.
 int last_error = 0;
 void follow_line(){
