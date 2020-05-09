@@ -1,4 +1,4 @@
-#include <Wire.h>
+#include <Wire.h>//reactive approach integrated into milestone 2
 #include <ZumoShield.h>
 
 ZumoMotors motors;
@@ -37,7 +37,7 @@ void loop() {
   }
 }
 
-void turn_left() {//turning using the reactive approach, later can experiment with ways to speed up
+void turn_left() {//turning using the reactive approach
   motors.setSpeeds(-BASE_SPEED, BASE_SPEED);
   linesensors.read(sensor_vals);
   while(sensor_vals[0] > THRESHOLD && sensor_vals[1] > THRESHOLD){
@@ -45,7 +45,7 @@ void turn_left() {//turning using the reactive approach, later can experiment wi
   }  
 }
 
-void turn_right() {
+void turn_right() {//turning using the reactive approach
   motors.setSpeeds(BASE_SPEED, -BASE_SPEED);
   linesensors.read(sensor_vals);
   while(sensor_vals[4] > THRESHOLD && sensor_vals[5] > THRESHOLD){
