@@ -1,4 +1,4 @@
-#include <Wire.h>
+#include <Wire.h>//code from Moodle integrated with Milestone 5. 
 #include <ZumoShield.h>
 
 ZumoMotors motors;
@@ -188,7 +188,7 @@ void solved(){
     }
   }
   
-  button.waitForButton();
+  button.waitForButton();//press push-button to have robot run through maze with "remembered" path
 
   buzzer.play("O6 d32a32");
   delay(1000);
@@ -226,8 +226,8 @@ void runSolvedMaze(){
         break;
       }
       
-      motors.setSpeeds(BASE_SPEED, BASE_SPEED);
-      get_intersection_type(); // just to get through the intersection
+      motors.setSpeeds(BASE_SPEED, BASE_SPEED);//code from Moodle milestone 6
+      get_intersection_type();
     
       if(path[solved_path_location] == 'S'){
         follow_line();
@@ -252,7 +252,7 @@ void runSolvedMaze(){
   runSolvedMaze();
 }
 
-void path_reduce(){
+void path_reduce(){//angles to help robot "remember" correct path
   bool flag = false;  
   for(int path_location=2; path_location < turn_counter; path_location++){
     if(flag){
