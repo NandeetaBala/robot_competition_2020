@@ -8,4 +8,4 @@ https://drive.google.com/drive/u/0/folders/1zUX5wUuhZ78YEob2pX2QqQwuZUTz3peT <br
 The main change that resulted in a much improved speed was to change the base_speed to a higher value. Retaining the initial derivative and proportional gain values, it was found that the optimal base_speed was 350 (initially was at 200). This resulted in a net time of 10 s! Code for this is included in milestone_7_code_2. <br/>
 https://drive.google.com/drive/u/0/folders/1ru9ygfNkGXGRtAfomY6Yt21gMGVTnYTE <br/>
 
-Further trials were included in milestone_7_code_3 but there were no outcomes more successful than milestone_7_code_2. <br/>
+Further trials (mostly rough work) were included in milestone_7_code_3 but there were no outcomes more successful than milestone_7_code_2. <br/>
