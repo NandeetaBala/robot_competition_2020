@@ -29,7 +29,7 @@ char path[50];
 int turn_counter = 0;
 bool finish_detected = false;
 
-int INTERSECTION_LEFT_TURN = 0;
+int INTERSECTION_LEFT_TURN = 0;//based on example in Moodle: values for how movement is encoded or "remembered"
 int INTERSECTION_RIGHT_TURN = 1;
 int INTERSECTION_T = 2;
 int INTERSECTION_CROSS = 3;
@@ -54,13 +54,13 @@ void loop() {
   if(intersection_type == NO_INTERSECTION && sensor_vals[1] < THRESHOLD && sensor_vals[2] < THRESHOLD && sensor_vals[3] < THRESHOLD && sensor_vals[4] < THRESHOLD){
     path[turn_counter] = 'U';
     turn_counter++;
-    u_turn();
+    u_turn();//using the tracked movement to determine direction
   }
   
   if(intersection_type == INTERSECTION_RIGHT_T){
     path[turn_counter] = 'S';
     turn_counter++;
-    follow_line();
+    follow_line();//using the tracked movement to determine direction
   }
   if(intersection_type == INTERSECTION_LEFT_TURN || 
      intersection_type == INTERSECTION_LEFT_T || 
@@ -68,7 +68,7 @@ void loop() {
      intersection_type == INTERSECTION_T){
     path[turn_counter] = 'L';
     turn_counter++;
-    turn_left();
+    turn_left();//using the tracked movement to determine direction
   } 
   if(intersection_type == INTERSECTION_RIGHT_TURN){
     path[turn_counter] = 'R';
@@ -102,14 +102,14 @@ int get_intersection_type() {
 
     finish_counter++;
     if(finish_counter > 60){
-      //buzzer.play("O6c32d32e32f32g32");
+      //buzzer.play("O6c32d32e32f32g32");//notes to play gotten from Moodle
       return FINISH;
     }
   }
   
   bool line_straight = sensor_vals[2] > THRESHOLD || sensor_vals[3] > THRESHOLD;
 
-  if(!line_straight && line_on_left_ever && line_on_right_ever) {
+  if(!line_straight && line_on_left_ever && line_on_right_ever) {//all these musical notes obtained from Moodle
     buzzer.play("O6c32c32c32");
     return INTERSECTION_T;
   }
@@ -168,7 +168,7 @@ void u_turn() {
 void solved(){
   motors.setSpeeds(0,0);
   for(int i=0; i<turn_counter+1; i++){
-    if(path[i] == 'L'){
+    if(path[i] == 'L'){//like above, the music notes were copy-pasted straight from the example on Moodle to keep things clear.
       buzzer.playNote(NOTE_C(6), 100, 15);
       delay(200);
     }
