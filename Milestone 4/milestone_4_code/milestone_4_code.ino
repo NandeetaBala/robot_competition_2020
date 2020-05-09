@@ -53,7 +53,7 @@ void turn_right() {
   }  
 }
 
-void solved(){
+void solved(){//indicates how robot will stop once maze is completed (specific width of tape is exceeded)
   motors.setSpeeds(0,0);
   while(true){ 
     // do nothing so that the main loop() doesn't restart.
