@@ -3,7 +3,7 @@
 ZumoMotors motors;
 
 void setup() {
-  // put your setup code here, to run once:
+  // put your setup code here, to run once: set up code not required for this first milestone
 
 }
 
@@ -13,7 +13,7 @@ void loop() {
   motors.setRightSpeed(100);
   delay(4000);
   motors.setLeftSpeed(0);
-  motors.setRightSpeed(0);
+  motors.setRightSpeed(0);//initially forgot to add this! robot was spinning
   while(true) {
 
 }
