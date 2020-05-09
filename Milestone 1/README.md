@@ -3,9 +3,9 @@
 
 Milestone 1 was accomplished on May 6th! <br/>
 First, I forgot to include the RightSpeed to the code and found the robot spin. <br/>
-https://drive.google.com/drive/u/0/folders/1hthYKniKe6mAVe8OV2N2RHqiH264e83Z <br/>
+https://drive.google.com/drive/u/0/folders/12DgowkC5pGbe8H9EZPnUekUvmuenw-0m <br/>
 
 However, when I added the RightMotor, it worked fine! <br/>
-https://drive.google.com/drive/u/0/folders/1hthYKniKe6mAVe8OV2N2RHqiH264e83Z <br/>
+https://drive.google.com/drive/u/0/folders/1gWoWF5kkbK3wJTQXPNzQ5fBiFrU1JWun <br/>
 
 Accordingly, Milestone 1 was accomplished. <br/>
