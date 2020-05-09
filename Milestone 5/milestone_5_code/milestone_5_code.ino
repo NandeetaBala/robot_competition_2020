@@ -29,7 +29,7 @@ char path[50];
 int turn_counter = 0;
 bool finish_detected = false;
 
-int INTERSECTION_LEFT_TURN = 0;//based on example in Moodle: values for how movement is encoded or "remembered"
+int INTERSECTION_LEFT_TURN = 0;//based on example in Moodle: global variables for how robot's movement is encoded or "remembered"
 int INTERSECTION_RIGHT_TURN = 1;
 int INTERSECTION_T = 2;
 int INTERSECTION_CROSS = 3;
@@ -38,7 +38,7 @@ int INTERSECTION_RIGHT_T = 5;
 int FINISH = 6;
 int NO_INTERSECTION = 7;
 
-void loop() {
+void loop() {//using left-hand-on-the-wall
   line_position = linesensors.readLine(sensor_vals);
   
   bool line_on_left = sensor_vals[0] > THRESHOLD;
