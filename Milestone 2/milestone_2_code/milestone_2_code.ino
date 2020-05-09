@@ -2,7 +2,7 @@
 #include <ZumoShield.h>
 
 ZumoMotors motors;
-ZumoReflectanceSensorArray linesensors(QTR_NO_EMITTER_PIN);
+ZumoReflectanceSensorArray linesensors(QTR_NO_EMITTER_PIN);//indicates that no specific code to turn IR sensors on or off; they will be on the entire time
 ZumoBuzzer buzzer;
 
 void setup() {//this is using the read line method
@@ -21,7 +21,7 @@ void setup() {//this is using the read line method
   delay(500);
 }
 
-unsigned int sensor_vals[6];//this is proportional derivative control
+unsigned int sensor_vals[6];//this is proportional derivative (pd) control
 int BASE_SPEED = 200;
 double PROPORTION_GAIN = 0.2;
 double DERIVATIVE_GAIN = 3;//optimal value for smoothness
