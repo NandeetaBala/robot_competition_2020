@@ -1,5 +1,5 @@
 # Milestone 7
-## Get the robot to complete the "remembered" run in under 15 s
+## Get the robot to complete the final run in under 15 s
 
 Milestone 7 was also accomplished on May 7th!!! <br/>
 When the proportional gain was set to 0.6, the motion of the robot became choppy. When set to 0.1, the robot had a very difficult time following the lines and went in circles. When the derivative gain was set to 2 (from an initial value of 3), the robot missed many turns. By experimenting with changing the derivative gain and proportional gain, I found that the derivative gain was set to an ideal value and that the proportional gain could be set to 0.13 (changed from the inital value of 0.2) to slightly increase the speed. In the run in the video, the robot just completed the maze in 14s. Code for this is included in milestone_7_code <br/>
