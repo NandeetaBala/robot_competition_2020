@@ -1,4 +1,4 @@
-#include <Wire.h>//changed the base speed to 350. didnt work too well. then tried 350 and used proportion gain of 0.2. can also try 275 and 0.13. Net time...10s!! whoohoo!
+#include <Wire.h>//all final values that yielded a super past bot included! notes on how i got here also included: changed the base speed to 350 w/ gain 0.13. didnt work too well. then tried 350 and used proportion gain of 0.2. that worked well! tried 275 w/ 0.13 gain but that didn't work either.
 #include <ZumoShield.h>
 
 ZumoMotors motors;
@@ -24,7 +24,7 @@ void setup() {
 
 unsigned int sensor_vals[6];
 int THRESHOLD = 400;
-int BASE_SPEED = 350;//changed from 200 to 350 that was too fast and it missed turns. so, now trying 275.
+int BASE_SPEED = 350;//changed from 200 to 350 (for gain 0.13) that was too fast and it missed turns. so, now trying 275. that did not work well either.
 int line_position;
 char path[50];
 int turn_counter = 0;
@@ -196,8 +196,8 @@ void solved(){
   runSolvedMaze();
 }
 
-double PROPORTION_GAIN = 0.2;//was set to 0.6 from 0.2, might be better to decrease this value, so i decreased to 0.1 from 0.2 and then the robot went in circles. so i changed  to 0.13 - that worked great and had an  initial run of 13s
-double DERIVATIVE_GAIN = 3;//changed to 2 from 3, then the robot missed a lot of the turns and such.
+double PROPORTION_GAIN = 0.2;//was set to initial value (0.13 did not work when trying to increase base_speed)
+double DERIVATIVE_GAIN = 3;//was set to initial value
 int last_error = 0;
 void follow_line(){
   // follow line
