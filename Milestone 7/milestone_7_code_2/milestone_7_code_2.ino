@@ -1,4 +1,4 @@
-#include <Wire.h>//all final values that yielded a super past bot included! notes on how i got here also included: changed the base speed to 350 w/ gain 0.13. didnt work too well. then tried 350 and used proportion gain of 0.2. that worked well! tried 275 w/ 0.13 gain but that didn't work either.
+#include <Wire.h>//all final values that made the robot super fast are included! notes on how i got here also included: changed the base speed to 350 w/ gain 0.13. didnt work too well. then tried 350 and used proportion gain of 0.2. that worked well! tried 275 w/ 0.13 gain but that didn't work either.
 #include <ZumoShield.h>
 
 ZumoMotors motors;
